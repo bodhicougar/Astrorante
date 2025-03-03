@@ -265,7 +265,7 @@ export default {
   ],
   plugins: [
     animate,
-    plugin("@tailwindcss/container-queries"),
+    require("@tailwindcss/container-queries"),
     plugin(function ({ addBase }) {
       addBase({
         html: { fontSize: "18px" },
