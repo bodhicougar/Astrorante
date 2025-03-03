@@ -1,4 +1,4 @@
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin.js";
 import animate from "tailwindcss-animate";
 
 /** @type {import('tailwindcss').Config} */
@@ -265,7 +265,7 @@ export default {
   ],
   plugins: [
     animate,
-    require("@tailwindcss/container-queries"),
+    plugin("@tailwindcss/container-queries"),
     plugin(function ({ addBase }) {
       addBase({
         html: { fontSize: "18px" },

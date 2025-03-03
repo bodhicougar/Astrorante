@@ -7,14 +7,13 @@ import vue from "@astrojs/vue";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import netlify from "@astrojs/netlify";
-import vercel from "@astrojs/vercel";
 
 const env = loadEnv("", process.cwd(), ["STORYBLOK", "NETLIFY"]);
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astrorante.unfolding.io/", 
-  adapter: env.NETLIFY ? netlify() : vercel(), // vercel() or netlify()
+  site: "https://barcentrale.netlify.app/",
+  adapter: netlify(),
   integrations: [
     storyblok({
       accessToken: env.STORYBLOK_PREVIEW_TOKEN,
@@ -31,7 +30,7 @@ export default defineConfig({
         banner: "components/bloks/Banner",
       },
       apiOptions: {
-        region: env.STORYBLOK_REGION, 
+        region: env.STORYBLOK_REGION,
       },
     }),
     tailwind({
@@ -56,9 +55,7 @@ export default defineConfig({
       https: true,
     },
   },
-  experimental: {
-    
-  },
+  experimental: {},
   env: {
     schema: {
       STORYBLOK_PREVIEW_TOKEN: envField.string({
